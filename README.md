@@ -8,38 +8,39 @@ This report reviews the fundraising outcomes for theater campaigns based on thei
 ## Analysis and Challenges ##
 
 ### Analysis of Outcomes Based on Launch Date ###
-In the first analysis, we prepared the kickstarter workbook data to create a pivot table and pivot chart describing campaign outcomes based on the date the campaigns began, or "launched." To do this, the following action items were completed:
-- A "Years" column was inserted directly next to the "Date Created Conversion column". The =YEAR() function was used to extract the date from the month, day, and year data for analysis. After the function was applied to the cell in the top row, the formula was dragged until the entire column was populated.
-- After this new column was added, the full worksheet range was selected to create a pivot table. A pivot table is inserted by selecting the "Pivot Table" icon from the "Insert" menu. When confirming the data range for the table input, the pivot table wizard offers an option to insert the chart in a new sheet. 
+In the first part of this analysis, we prepared the kickstarter workbook data to create a pivot table and pivot chart describing campaign outcomes based on the date the campaigns began, or "launched." To do this, the following action items were completed:
+- A "Years" column was inserted directly next to the "Date Created Conversion column". The =YEAR() function was used to refer to the Date Created Conversion cells, thereby extracting the year from the month, day, and year data in a separate column. After the function was applied to the cell in the top row, the formula was dragged until the entire column was populated.
+- After this new column was added, the full worksheet range was selected to create a pivot table. A pivot table was inserted by selecting the "Pivot Table" icon from the "Insert" menu. When confirming the data range for the table input, the pivot table wizard offered an option to insert the chart in a new sheet. 
 - To populate the pivot table, the following fields were selected:
-        Columns: Outcomes
-        Values: Count of outcomes
-        Rows: Date Created Conversion
-        Filters: Parent category, Years
+        - Columns: Outcomes
+        - Values: Count of outcomes
+        - Rows: Date Created Conversion
+        - Filters: Parent category, Years
 - After the pivot table was created, we applied the filter for "parent category" to list only the "theater" options in the results. This was completed by clicking the "filter" icon on the parent category field and deselecting all checkboxes except "theater".
 - To visually prioritize campaigns that were successful, we sorted the chart by clicking the "filter" icon on the table headers and selecting the option to sort by descending alphabetical order, which would list the "s" for successful outcomes in the first column reading left to right. 
-At the conclusion of this analysis, the table contains data filtered to display only campaigns in the theater category - Louise's field of interest. The data is organized by month and sorted by outcomes to visually prioritize the successful campaigns.  
-The second component of this analysis is a visual representation of the results. The graph was created by: 
+At the conclusion of this analysis, the pivot table contained data that was filtered to display only campaigns in the theater category - Louise's field of interest. The data was organized by month and sorted by outcomes to visually prioritize the successful campaigns.  
+The next step of this analysis was to create a visual representation of the results. The graph was created by: 
 - Selecting the pivot table, navigating to the "PivotTable Analyze" menu, and selecting "PivotChart." 
-- The chart that was automatically generated was a column chart type; In order to use this data to create a line chart, we select "Design", then "Change Chart Type." The "Line with Markers" option was available in the dropdown menu.
-- To insert the chart title, we remain on the "Design" menu, select "Add Chart Element," and select "Chart Title."
+- The chart that was automatically generated was a column chart type; In order to use this data to create a line chart, we selected "Design", then "Change Chart Type." The "Line with Markers" option was available in the dropdown menu.
+- To insert the chart title, we remained on the "Design" menu, select "Add Chart Element," and selected "Chart Title."
 At the conclusion of this analysis, the line graph displays the pivot chart data visually in a line chart to allow us to easily track trends by month throughout the year. The different lines represent campaigns of different outcomes. 
 <img width="1298" alt="image" src="https://user-images.githubusercontent.com/114873837/201186243-f28c6f0b-dd76-45a0-87b6-f7558bb7bb76.png">
 
 ### Analysis of Outcomes Based on Goals
-How was the analysis performed?
-In the first analysis, we used the kickstarter workbook data to prepared a table of calculations summarizing the number of campaigns fittng a specific subset of criteria (campaigns belonging to the "plays" subcategory with goals falling into a specific dollar range for each outcome type). To create this table, the following action items were completed:
+In the second part of this analysis, we used the kickstarter workbook data to prepared a table of calculations summarizing the number of campaigns fittng a specific subset of criteria (campaigns belonging to the "plays" subcategory with goals falling into a specific dollar range for each outcome type). To create this table, the following action items were completed:
 - The column and row assignments were populated with the headers and row labels of interest, with outcome types in the column labels and goal fundraising amounts in the row labels.
-- The number of campaigns in each category was calculated using a COUNTIFS formula establishing the criteria for a selected range of data. The COUNTIFS formula behaves as a filter to reduce the data in the selected range to only the items that fit the criteria provided. For example, in cell B2, to count the number of successful campaigns belonging to the play subcategory that had goals of less than $1000, we would insert the following function:
+- The number of campaigns in each category were calculated using a COUNTIFS formula establishing the criteria for a selected range of data. The COUNTIFS formula behaves as a filter to reduce the data in the selected range to only the items that fit the criteria provided. For example, in cell B2, to count the number of successful campaigns belonging to the play subcategory that had goals of less than $1000, we would insert the following function:
                 =COUNTIFS(Kickstarter!D:D,"<1000",Kickstarter!F:F,"=successful",Kickstarter!R:R,"=plays")
 - This formula was inserted into every cell in the first three columns, and then the criteria were edited accordingly to target the appropriate goal range and outcome type. For example, in our table Cell C8 would describe the number of campaigns with goals between 25,000 and 29,000 that failed in their fundraising attempts. The function in this cell would read as follows:
                 =COUNTIFS(Kickstarter!D:D,">=25000",Kickstarter!D:D,"<=29999",Kickstarter!F:F,"=successful",Kickstarter!R:R,"=plays")
-- After populating the first three columns with data, we can use the values to summarize the number of total projects in the play subcategory for each goal range. To do so, we applied a =SUM function to add the number of campaigns for each outcome type. There are many ways to structure a formula to add values of different cells, including directly referencing the cells (=B2 + C2 + D2), a summary function that covers the range of interest is the most efficient syntax to add values from several cells quickly (=SUM(B2:D2)). This function was then applied to all rows to populate the "Total Projects" column.
- - While displaying the overall number of projects by outcome is good, these numbers would be more suitable for analysis if we had a clearer understanding of the context. For example, would 45 campaigns that have failed be considered high in relation to the overall number of campaigns? The values that we have calculated would have more meaning if they were displayed as a percentage of a whole. To calculate a percentage, we used a simple formula to divide each cell by the total number of projects for the goal range of interest. For example, row 2 would 
-                
+- After populating the first three columns with data, we could use these values to summarize the number of total projects in the play subcategory for each goal range. To do so, we applied a =SUM function to add the number of campaigns for each outcome type. There are many ways to structure a formula to add values of different cells, including directly referencing the cells (=B2 + C2 + D2), but a summary function that covers the range of interest is the most efficient syntax to add values from several cells quickly (=SUM(B2:D2)). This function was then applied to all rows to populate the "Total Projects" column.
+ - While displaying the overall number of projects by outcome is good, these numbers would be more suitable for analysis if we had a clearer understanding of the context. For example, would 45 campaigns that have failed be considered high in relation to the overall number of campaigns? The values that we have calculated would have more meaning if they were displayed as a percentage of a whole. To calculate a percentage, we used a simple division formula using the / operator to divide each cell by the total number of projects for the goal range of interest. An example of this formula for the top row would be =B2/E2.
+ - Once the calculation was applied, the resulting numbers displayed as a decimal number. For the cells to appear as percentages, we changed the data's format type to a percentage by navigating from the home tab to the data format dropdown menu. We adjusted the format from "General" to "Percentage". This was repeated until all percentages were calculated and formatted for the various outcome types.
 As a result of this analysis, the table contains the count of campaigns in the play subcategory for each type of outcome. The data is organized by fundraising goal ranges and allows us to examine the percentage of campaigns within each fundraising range that were successful, unsuccessful, or canceled.
-
-The second graph displays this information visually in a line chart to allow us to track the percentage of overall projects that were successful or unsuccessful as the fundraising goal range increases.  
+The next step of this analysis was to create a visual representation of the results. This graph was created by:
+- Highlighting the columns of interest for the analysis, which included the Goal column (Column A), Percentage Successful, Percentage Failed, and Percentage Canceled columns (Columns F through H), navigating to the "Insert" menu, and selecting the icon for line charts. 
+- The title and axes of the chart were automatically populated. We edited the chart title by simply double clicking and renaming.
+At the conclusion of this analysis, this chart displays this information visually in lines to allow us to track the percentage of overall projects that were successful or unsuccessful as the fundraising goal range increases.  
 <img width="1316" alt="image" src="https://user-images.githubusercontent.com/114873837/201186369-d9f4b7fe-a114-4080-aab1-bc92bd859d04.png">
 
 ### Challenges and Difficulties Encountered
