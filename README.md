@@ -24,6 +24,7 @@ The second component of this analysis is a visual representation of the results.
 - The chart that was automatically generated was a column chart type; In order to use this data to create a line chart, we select "Design", then "Change Chart Type." The "Line with Markers" option was available in the dropdown menu.
 - To insert the chart title, we remain on the "Design" menu, select "Add Chart Element," and select "Chart Title."
 At the conclusion of this analysis, the line graph displays the pivot chart data visually in a line chart to allow us to easily track trends by month throughout the year. The different lines represent campaigns of different outcomes. 
+<img width="1298" alt="image" src="https://user-images.githubusercontent.com/114873837/201186243-f28c6f0b-dd76-45a0-87b6-f7558bb7bb76.png">
 
 ### Analysis of Outcomes Based on Goals
 How was the analysis performed?
@@ -39,7 +40,7 @@ In the first analysis, we used the kickstarter workbook data to prepared a table
 As a result of this analysis, the table contains the count of campaigns in the play subcategory for each type of outcome. The data is organized by fundraising goal ranges and allows us to examine the percentage of campaigns within each fundraising range that were successful, unsuccessful, or canceled.
 
 The second graph displays this information visually in a line chart to allow us to track the percentage of overall projects that were successful or unsuccessful as the fundraising goal range increases.  
-!OutcomesBasedOnGoals(Outcomes_vs_Goals.png)
+<img width="1316" alt="image" src="https://user-images.githubusercontent.com/114873837/201186369-d9f4b7fe-a114-4080-aab1-bc92bd859d04.png">
 
 ### Challenges and Difficulties Encountered
 When the Date Created Conversion field was populated in the pivot table
